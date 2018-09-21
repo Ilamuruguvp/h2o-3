@@ -94,7 +94,10 @@ ansiColor('xterm') {
         buildInParallel(pipelineContext, previousVersion, COMPONENT_IMAGES)
 
         BUILD_BASE_IMAGE = [
-            "dev-build-base": [dockerfile: 'Dockerfile-build-base']
+            "dev-build-base": [
+                dockerfile: 'Dockerfile-build-base',
+                buildArgs: ["H2O_BRANCH=${params.h2oBranch}"]
+            ]
         ]
         buildInParallel(pipelineContext, previousVersion, BUILD_BASE_IMAGE)
 

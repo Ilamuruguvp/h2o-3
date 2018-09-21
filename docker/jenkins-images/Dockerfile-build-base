@@ -21,7 +21,7 @@ RUN \
 
 COPY scripts/build-h2o-3 scripts/install_python_version /tmp/
 ENV PY_VERSION=3.5
-ENV H2O_BRANCH=master
+ARG H2O_BRANCH=master
 RUN \
     chown jenkins:jenkins /tmp/build-h2o-3 && \
     chmod a+x /tmp/build-h2o-3 /tmp/install_python_version && \
